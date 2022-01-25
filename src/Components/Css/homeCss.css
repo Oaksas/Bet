@@ -1,0 +1,29 @@
+.bg-image {
+  /* background-image: url("https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.webp"); */
+  width: 100%;
+  height: 100%;
+  /* background-color: wheat; */
+}
+.card {
+  width: fit-content;
+}
+
+.weather {
+  position: fixed;
+  top: 40%;
+  right: 2px;
+  background-color: white;
+}
+.loading {
+  position: fixed;
+  top: 50%;
+  right: 50%;
+}
+.card-title {
+  background-color: rgba(27, 7, 65, 0.9);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.news {
+}
