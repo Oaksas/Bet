@@ -1,7 +1,6 @@
 import Messaging from "react-cssfx-loading/lib/Messaging";
 import "./Css/weather.css";
 import * as FaIcons from "react-icons/fa";
-import * as GiIcons from "react-icons/gi";
 
 import axios from "axios";
 import { useState, useEffect } from "react";

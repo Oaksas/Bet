@@ -6,6 +6,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Messaging from "react-cssfx-loading/lib/Messaging";
 import * as MdIcons from "react-icons/md";
+import * as FcIcons from "react-icons/fc";
 
 function Home(props) {
   const url = `https://newsapi.org/v2/top-headlines?country=us&category=${props.execute()}&apiKey=dda2bbd515a64537b0176995b68f3eba`;
@@ -41,13 +42,39 @@ function Home(props) {
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
-                        <h5 class="card-title text-warning">
+                        <h6 class="card-title text-warning">
                           Transaction Number -
                           0xb5c8bd9430b6cc87a0e2fe110ece6bf527fa4f170a4bc8cd032f768fc5219838
-                        </h5>
+                        </h6>
+                        <p class="card-text ">
+                          <h6>Account </h6>
+                          <h6 className="text-warning">
+                            0xb5c8bd9430b6cc87a0e2fe110ece6
+                          </h6>
+                        </p>
                         <p class="card-text">
-                          <h3>Account </h3>
-                          <h5>0xb5c8bd9430b6cc87a0e2fe110ece6</h5>
+                          <h6>
+                            Transaction type -{" "}
+                            <small className="text-warning">Type</small>{" "}
+                          </h6>
+                        </p>
+                        <p class="card-text">
+                          <h6>
+                            Transaction Hash -{" "}
+                            <small className="text-warning">
+                              {" "}
+                              0xb5c8bd9430b6cc87a0e2fe110ece6bf527fa4f170a4bc8cd032f768fc5219838
+                            </small>{" "}
+                          </h6>
+                        </p>
+                        <p class="card-text">
+                          <h6>
+                            Is mined -{" "}
+                            <small className="text-warning">
+                              {" "}
+                              <FcIcons.FcApproval color="darkorange" />
+                            </small>{" "}
+                          </h6>
                         </p>
                         <p class="card-text">
                           <small class="text-muted">

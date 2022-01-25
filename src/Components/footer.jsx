@@ -6,8 +6,7 @@ function Footer() {
     <div className="footer ">
       <footer className="page-footer font-small">
         <div className="footer-copyright text-center py-3">
-          © {new Date().getFullYear()} Copyright
-          <a> Mindplex</a>
+          © {new Date().getFullYear()} Copyright Mindplex
         </div>
       </footer>
     </div>

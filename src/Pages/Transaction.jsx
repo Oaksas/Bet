@@ -5,9 +5,10 @@ import React from "react";
 import "../Components/Css/homeCss.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Fragment } from "react/cjs/react.production.min";
+import * as FcIcons from "react-icons/fc";
 
 function Transaction(props) {
-  const [result, setResult] = useState("");
   const url = `https://newsapi.org/v2/top-headlines?country=us&category=${props.execute()}&apiKey=dda2bbd515a64537b0176995b68f3eba`;
 
   const [news, setNews] = useState(null);
@@ -25,7 +26,7 @@ function Transaction(props) {
 
   if (news) {
     return (
-      <div>
+      <Fragment>
         <div className="mainColor">
           <div className="bg-image p-5">
             {news.articles.map((news, index) => {
@@ -41,13 +42,39 @@ function Transaction(props) {
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
-                        <h5 class="card-title text-warning">
+                        <h6 class="card-title text-warning">
                           Transaction Number -
                           0xb5c8bd9430b6cc87a0e2fe110ece6bf527fa4f170a4bc8cd032f768fc5219838
-                        </h5>
+                        </h6>
+                        <p class="card-text ">
+                          <h6>Account </h6>
+                          <h6 className="text-warning">
+                            0xb5c8bd9430b6cc87a0e2fe110ece6
+                          </h6>
+                        </p>
                         <p class="card-text">
-                          <h3>Account </h3>
-                          <h5>0xb5c8bd9430b6cc87a0e2fe110ece6</h5>
+                          <h6>
+                            Transaction type -{" "}
+                            <small className="text-warning">Type</small>{" "}
+                          </h6>
+                        </p>
+                        <p class="card-text">
+                          <h6>
+                            Transaction Hash -{" "}
+                            <small className="text-warning">
+                              {" "}
+                              0xb5c8bd9430b6cc87a0e2fe110ece6bf527fa4f170a4bc8cd032f768fc5219838
+                            </small>{" "}
+                          </h6>
+                        </p>
+                        <p class="card-text">
+                          <h6>
+                            Is mined -{" "}
+                            <small className="text-warning">
+                              {" "}
+                              <FcIcons.FcApproval color="darkorange" />
+                            </small>{" "}
+                          </h6>
                         </p>
                         <p class="card-text">
                           <small class="text-muted">
@@ -62,22 +89,12 @@ function Transaction(props) {
             })}
           </div>
         </div>
-      </div>
+      </Fragment>
     );
   } else {
     return (
       <h2 className="my-5 offset-6">
-        {" "}
-        {result ? (
-          result
-        ) : (
-          <Hypnosis
-            color="#ff5b00"
-            width="100px"
-            height="100px"
-            duration="1s"
-          />
-        )}
+        <Hypnosis color="#ff5b00" width="100px" height="100px" duration="1s" />
       </h2>
     );
   }
