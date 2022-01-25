@@ -3,9 +3,7 @@ import Footer from "./Components/footer";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import Transaction from "./Pages/Transaction";
-import Detail from "./Pages/Detail";
-import Tech from "./Pages/Tech";
-import Africa from "./Pages/AllAboutAfrica";
+
 import { useState } from "react";
 
 import "./App.css";
@@ -13,12 +11,13 @@ import "./App.css";
 // import { useEffect, useState } from "react";
 
 function App() {
-  const [transactionSearched, setTransactionSearched] = useState("");
+  const [transactionSearched, setTransactionSearched] = useState("business");
   function searchTransaction(transactionNumber) {
     setTransactionSearched(transactionNumber);
   }
   function executeTransaction() {
     console.log(transactionSearched);
+    return transactionSearched.trim();
   }
   return (
     <>
@@ -28,11 +27,15 @@ function App() {
           execute={() => executeTransaction()}
         />
         <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="/predict" element={<Transaction />} />
-          <Route path="/detail" element={<Detail />} />
-          <Route path="/tech" element={<Tech />} />
-          <Route path="/africa" element={<Africa />} />
+          <Route
+            path="/"
+            exact
+            element={<Home execute={() => executeTransaction()} />}
+          />
+          <Route
+            path="/transactions"
+            element={<Transaction execute={() => executeTransaction()} />}
+          />
         </Routes>
         <Footer />
       </Router>

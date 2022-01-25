@@ -1,15 +1,14 @@
 import React from "react";
 import { Fragment } from "react/cjs/react.production.min";
 import "../Components/Css/homeCss.css";
-import Weather from "../Components/Weather";
+import Cryptos from "../Components/Cryptos";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Messaging from "react-cssfx-loading/lib/Messaging";
-import { Link } from "react-router-dom";
+import * as MdIcons from "react-icons/md";
 
-function Home({ props }) {
-  const url =
-    "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=dda2bbd515a64537b0176995b68f3eba";
+function Home(props) {
+  const url = `https://newsapi.org/v2/top-headlines?country=us&category=${props.execute()}&apiKey=dda2bbd515a64537b0176995b68f3eba`;
 
   const [news, setNews] = useState(null);
 
@@ -31,31 +30,39 @@ function Home({ props }) {
           <div className="bg-image p-5">
             {news.articles.map((news, index) => {
               return (
-                <div className="card d-inline-flex col-lg-3  m-2 ">
-                  <img
-                    className="card-img-top"
-                    src={news.urlToImage}
-                    alt="Card image"
-                  />
-                  <div className="card-img-overlay">
-                    <h3 className="card-title text-white">{news.title}</h3>
-                    <h4 className="card-text text-white">{news.description}</h4>
-
-                    <Link
-                      to="/detail"
-                      state={{ Selectednews: news }}
-                      className="menu-bars className btn btn-warning"
-                    >
-                      {" "}
-                      Read More
-                    </Link>
+                <div class="card mb-3">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img
+                        src="https://www.verdict.co.uk/wp-content/uploads/2019/01/shutterstock_728180302-e1547115750181.jpg"
+                        className="img-fluid rounded"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title text-warning">
+                          Transaction Number -
+                          0xb5c8bd9430b6cc87a0e2fe110ece6bf527fa4f170a4bc8cd032f768fc5219838
+                        </h5>
+                        <p class="card-text">
+                          <h3>Account </h3>
+                          <h5>0xb5c8bd9430b6cc87a0e2fe110ece6</h5>
+                        </p>
+                        <p class="card-text">
+                          <small class="text-muted">
+                            <MdIcons.MdTimelapse color="darkorange" />3 mins ago
+                          </small>
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               );
             })}
 
             <div className="d-sm-none d-xs-none d-md-none d-lg-block d-inline-flex weather">
-              <Weather className="rounded" />
+              <Cryptos className="rounded" />
             </div>
           </div>
         </div>

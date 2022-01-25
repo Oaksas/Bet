@@ -3,6 +3,9 @@
   height: 50px;
 }
 .weatherDiv {
-  width: 500px;
-  background-image: url("https://c4.wallpaperflare.com/wallpaper/910/10/429/artwork-dom-yellow-olly-moss-wallpaper-preview.jpg");
+  width: 300px;
+  background-color: rgb(63, 62, 62);
+  color: darkorange;
+  font-style: bold;
+  border-radius: 20px;
 }

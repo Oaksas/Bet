@@ -1,7 +1,6 @@
 import React from "react";
 import { Fragment } from "react/cjs/react.production.min";
 import "../Components/Css/homeCss.css";
-import Weather from "../Components/Weather";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Messaging from "react-cssfx-loading/lib/Messaging";
@@ -57,7 +56,7 @@ function Africa() {
             })}
 
             <div className="d-sm-none d-xs-none d-md-none d-lg-block d-inline-flex weather">
-              <Weather className="rounded" />
+              {/* <Weather className="rounded" /> */}
             </div>
           </div>
         </div>
