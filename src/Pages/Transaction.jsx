@@ -2,12 +2,9 @@ import Hypnosis from "react-cssfx-loading/lib/Hypnosis";
 import * as MdIcons from "react-icons/md";
 import "../Components/Css/homeCss.css";
 import React from "react";
-import { Fragment } from "react/cjs/react.production.min";
 import "../Components/Css/homeCss.css";
-import Cryptos from "../Components/Cryptos";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Messaging from "react-cssfx-loading/lib/Messaging";
 
 function Transaction(props) {
   const [result, setResult] = useState("");
