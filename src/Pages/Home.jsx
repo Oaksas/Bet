@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 import Messaging from "react-cssfx-loading/lib/Messaging";
 import * as MdIcons from "react-icons/md";
 import * as FcIcons from "react-icons/fc";
-
 function Home(props) {
   const url = `https://newsapi.org/v2/top-headlines?country=us&category=${props.execute()}&apiKey=dda2bbd515a64537b0176995b68f3eba`;
 
@@ -23,7 +22,6 @@ function Home(props) {
         console.log(err);
       });
   }, [url]);
-
   if (news) {
     return (
       <Fragment>

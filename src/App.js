@@ -3,12 +3,11 @@ import Footer from "./Components/footer";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import Transaction from "./Pages/Transaction";
+import TransactionSummary from "./Components/graph";
 
 import { useState } from "react";
 
 import "./App.css";
-// import axios from "axios";
-// import { useEffect, useState } from "react";
 
 function App() {
   const [transactionSearched, setTransactionSearched] = useState("business");
@@ -36,6 +35,7 @@ function App() {
             path="/transactions"
             element={<Transaction execute={() => executeTransaction()} />}
           />
+          <Route path="/summary" element={<TransactionSummary />} />
         </Routes>
         <Footer />
       </Router>

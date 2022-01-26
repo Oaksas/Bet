@@ -1,37 +1,68 @@
 import Messaging from "react-cssfx-loading/lib/Messaging";
 import "./Css/weather.css";
 import * as FaIcons from "react-icons/fa";
-
+import { ApiEndPoints } from "./Data/ApiEndpoints";
 import axios from "axios";
 import { useState, useEffect } from "react";
 function Cryptos() {
-  const url = "https://data.messari.io/api/v1/assets/eth/metrics";
+  const url = `${ApiEndPoints[0]["cryptExchange"]}`;
 
   const [currencyInfo, setCurrencyInfo] = useState(null);
 
   useEffect(() => {
     axios.get(url).then((response) => {
-      setCurrencyInfo(response.data);
+      setCurrencyInfo(response.data.rates);
     });
   }, [url]);
-
   if (currencyInfo) {
     return (
       <div class="container  weatherDiv p-3">
-        <div class="row">
-          <div class="col-lg-4">
+        <div class="row mb-1">
+          <div class="col-lg-3">
             {" "}
-            <FaIcons.FaEthereum color="darkorange" size={"50"} />
+            <FaIcons.FaEthereum color="darkorange" size={"30"} />
           </div>
-          <div class="col-lg-8">
+          <div class="col-lg-9">
             <div className="row">
               <div class="col-lg">1 ETH</div>
               <div class="col-lg">
                 <FaIcons.FaDollarSign color="darkorange " size={"10"} />
-                {currencyInfo.data.market_data.price_usd.toFixed(2)}
+                {currencyInfo["ETH"].toFixed(2)}
               </div>
             </div>
+          </div>
+        </div>
+        <div class="row mb-1">
+          <div class="col-lg-3">
+            {" "}
+            <FaIcons.FaBitcoin color="darkorange" size={"30"} />
+          </div>
+          <div class="col-lg-9">
             <div className="row">
+              <div class="col-lg">1 BTC</div>
+              <div class="col-lg">
+                <FaIcons.FaDollarSign color="darkorange " size={"10"} />
+                {currencyInfo["BTC"].toFixed(2)}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-1">
+          <div class="col-lg-3">
+            {" "}
+            <FaIcons.FaCoins color="darkorange" size={"30"} />
+          </div>
+          <div class="col-lg-9">
+            <div className="row">
+              <div class="col-lg">1 BNB</div>
+              <div class="col-lg">
+                <FaIcons.FaDollarSign color="darkorange " size={"10"} />
+                {currencyInfo["BNB"].toFixed(2)}
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* <div className="row">
               <div class="col-lg">Active Addresses</div>
               <div class="col-lg">
                 {
@@ -54,10 +85,8 @@ function Cryptos() {
                   size={"10"}
                 />
                 {currencyInfo.data.all_time_high.at}
-              </div>
-            </div>
-          </div>
-        </div>
+              </div> */}
+        {/* </div> */}
       </div>
     );
   } else {
