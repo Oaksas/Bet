@@ -103,8 +103,28 @@ function Home(props) {
                         return (
                           <button
                             type="button"
-                            class={"btn bg-" + color + " customBtn2 mx-1"}
-                            onClick={() => console.log(index + 13)}
+                            className={
+                              selectedBets.includes(index + 13)
+                                ? "btn bg-primary customBtn2 mx-1"
+                                : "btn bg-" + color + " customBtn2 mx-1"
+                            }
+                            onClick={() => {
+                              if (selectedBets.includes(index + 13)) {
+                                var currentBet = selectedBets.filter(function (
+                                  e
+                                ) {
+                                  return e !== index + 13;
+                                });
+
+                                selectBet(currentBet);
+                                console.log(selectedBets);
+                              } else {
+                                currentBet = selectedBets;
+                                currentBet.push(index + 13);
+                                selectBet(currentBet);
+                                console.log(selectedBets);
+                              }
+                            }}
                           >
                             {index + 13}
                           </button>
@@ -116,8 +136,28 @@ function Home(props) {
                         return (
                           <button
                             type="button"
-                            class={"btn bg-" + color + " customBtn2 mx-1"}
-                            onClick={() => console.log(index + 19)}
+                            className={
+                              selectedBets.includes(index + 19)
+                                ? "btn bg-primary customBtn2 mx-1"
+                                : "btn bg-" + color + " customBtn2 mx-1"
+                            }
+                            onClick={() => {
+                              if (selectedBets.includes(index + 19)) {
+                                var currentBet = selectedBets.filter(function (
+                                  e
+                                ) {
+                                  return e !== index + 19;
+                                });
+
+                                selectBet(currentBet);
+                                console.log(selectedBets);
+                              } else {
+                                currentBet = selectedBets;
+                                currentBet.push(index + 19);
+                                selectBet(currentBet);
+                                console.log(selectedBets);
+                              }
+                            }}
                           >
                             {index + 19}
                           </button>
@@ -129,8 +169,28 @@ function Home(props) {
                         return (
                           <button
                             type="button"
-                            class={"btn bg-" + color + " customBtn2 mx-1"}
-                            onClick={() => console.log(index + 25)}
+                            className={
+                              selectedBets.includes(index + 25)
+                                ? "btn bg-primary customBtn2 mx-1"
+                                : "btn bg-" + color + " customBtn2 mx-1"
+                            }
+                            onClick={() => {
+                              if (selectedBets.includes(index + 25)) {
+                                var currentBet = selectedBets.filter(function (
+                                  e
+                                ) {
+                                  return e !== index + 25;
+                                });
+
+                                selectBet(currentBet);
+                                console.log(selectedBets);
+                              } else {
+                                currentBet = selectedBets;
+                                currentBet.push(index + 25);
+                                selectBet(currentBet);
+                                console.log(selectedBets);
+                              }
+                            }}
                           >
                             {index + 25}
                           </button>
@@ -142,8 +202,28 @@ function Home(props) {
                         return (
                           <button
                             type="button"
-                            class={"btn bg-" + color + " customBtn2 mx-1"}
-                            onClick={() => console.log(index + 31)}
+                            className={
+                              selectedBets.includes(index + 31)
+                                ? "btn bg-primary customBtn2 mx-1"
+                                : "btn bg-" + color + " customBtn2 mx-1"
+                            }
+                            onClick={() => {
+                              if (selectedBets.includes(index + 31)) {
+                                var currentBet = selectedBets.filter(function (
+                                  e
+                                ) {
+                                  return e !== index + 31;
+                                });
+
+                                selectBet(currentBet);
+                                console.log(selectedBets);
+                              } else {
+                                currentBet = selectedBets;
+                                currentBet.push(index + 31);
+                                selectBet(currentBet);
+                                console.log(selectedBets);
+                              }
+                            }}
                           >
                             {index + 31}
                           </button>

@@ -1,4 +1,6 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useRef } from "react";
+import ReactToPrint from "react-to-print";
+
 import * as FaIcons from "react-icons/fa";
 import * as BsIcons from "react-icons/bs";
 import * as GrIcons from "react-icons/gr";
@@ -9,11 +11,12 @@ import { IconContext } from "react-icons";
 
 import { Link } from "react-router-dom";
 import "./Css/navBar.css";
-
+import Ticket from "../Pages/printComponent";
 export default function RightSideBar(props) {
   const [sidebar, setSideBar] = useState(false);
   const showSideBar = () => setSideBar(!sidebar);
   const [totalBets, setTotalBets] = useState(0);
+  let componentRef = useRef();
 
   return (
     <Fragment>
@@ -195,16 +198,31 @@ export default function RightSideBar(props) {
               <button
                 type="button"
                 className="btn bg-white customBtn mx-1"
-                onClick={() => props.setValue(5)}
+                onClick={() => {
+                  if (true) {
+                    var currentBet = props.selectedBets.filter(function (e) {
+                      return;
+                    });
+
+                    props.selectBets(currentBet);
+                    console.log(props.selectedBets);
+                  }
+                }}
               >
                 <AiIcons.AiOutlineClose color="red" />
               </button>
               <button type="button" className="btn bg-white customBtn mx-1">
                 <AiIcons.AiOutlineBarcode color="black" />
               </button>
-              <button type="button" className="btn printBtn customBtn mx-1">
-                <AiIcons.AiOutlinePrinter color="white" />
-              </button>
+              <ReactToPrint
+                trigger={() => (
+                  <button type="button" className="btn printBtn customBtn mx-1">
+                    <AiIcons.AiOutlinePrinter color="white" />
+                  </button>
+                )}
+                content={() => componentRef}
+              />
+              <Ticket ref={(el) => (componentRef = el)} />
             </div>
           </div>
         </nav>

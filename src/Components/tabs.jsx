@@ -204,10 +204,19 @@ function Tabs(props) {
               type="button"
               class="btn btnGray btn-lg mx-1"
               onClick={() => {
-                props.selectedBet.includes("Even")
-                  ? props.selectedBet.pop("Even")
-                  : props.selectedBet.push("Even");
-                console.log(props.selectedBet);
+                if (props.selectedBet.includes("Even")) {
+                  var currentBet = props.selectedBet.filter(function (e) {
+                    return e != "Even";
+                  });
+
+                  props.selectBet(currentBet);
+                  console.log(props.selectedBet);
+                } else {
+                  currentBet = props.selectedBet;
+                  currentBet.push("Even");
+                  props.selectBet(currentBet);
+                  console.log(props.selectedBet);
+                }
               }}
             >
               Even{" "}
@@ -216,10 +225,19 @@ function Tabs(props) {
               type="button"
               class="btn btnGray btn-lg mx-1"
               onClick={() => {
-                props.selectedBet.includes("Odd")
-                  ? props.selectedBet.pop("Odd")
-                  : props.selectedBet.push("Odd");
-                console.log(props.selectedBet);
+                if (props.selectedBet.includes("Odd")) {
+                  var currentBet = props.selectedBet.filter(function (e) {
+                    return e != "Odd";
+                  });
+
+                  props.selectBet(currentBet);
+                  console.log(props.selectedBet);
+                } else {
+                  currentBet = props.selectedBet;
+                  currentBet.push("Odd");
+                  props.selectBet(currentBet);
+                  console.log(props.selectedBet);
+                }
               }}
             >
               Odd{" "}
@@ -233,10 +251,19 @@ function Tabs(props) {
               type="button"
               class="btn btnGray btn-lg mx-1"
               onClick={() => {
-                props.selectedBet.includes("High")
-                  ? props.selectedBet.pop("High")
-                  : props.selectedBet.push("High");
-                console.log(props.selectedBet);
+                if (props.selectedBet.includes("High")) {
+                  var currentBet = props.selectedBet.filter(function (e) {
+                    return e != "High";
+                  });
+
+                  props.selectBet(currentBet);
+                  console.log(props.selectedBet);
+                } else {
+                  currentBet = props.selectedBet;
+                  currentBet.push("High");
+                  props.selectBet(currentBet);
+                  console.log(props.selectedBet);
+                }
               }}
             >
               High{" "}
@@ -245,10 +272,19 @@ function Tabs(props) {
               type="button"
               class="btn btnGray btn-lg mx-1"
               onClick={() => {
-                props.selectedBet.includes("Low")
-                  ? props.selectedBet.pop("Low")
-                  : props.selectedBet.push("Low");
-                console.log(props.selectedBet);
+                if (props.selectedBet.includes("Low")) {
+                  var currentBet = props.selectedBet.filter(function (e) {
+                    return e != "Low";
+                  });
+
+                  props.selectBet(currentBet);
+                  console.log(props.selectedBet);
+                } else {
+                  currentBet = props.selectedBet;
+                  currentBet.push("Low");
+                  props.selectBet(currentBet);
+                  console.log(props.selectedBet);
+                }
               }}
             >
               Low{" "}

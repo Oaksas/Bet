@@ -16,3 +16,7 @@
 body {
   background-color: black;
 }
+
+thead th {
+  padding-right: 50px;
+}
