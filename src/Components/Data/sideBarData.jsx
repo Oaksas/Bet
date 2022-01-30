@@ -14,10 +14,4 @@ export const SidebarData = [
     icon: <AiIcons.AiOutlineTransaction color="darkorange" />,
     cName: "nav-text",
   },
-  {
-    title: "Summary",
-    path: "/summary",
-    icon: <AiIcons.AiFillBook color="darkorange" />,
-    cName: "nav-text",
-  },
 ];

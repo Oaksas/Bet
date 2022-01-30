@@ -1,7 +1,7 @@
 .navBar {
   /* display: flex; */
-  height: 80%;
-  background-color: rgba(27, 7, 65, 1);
+
+  background-color: rgb(28, 28, 133);
   align-items: center;
   z-index: 1000;
 }
@@ -13,71 +13,94 @@
   z-index: 1000;
 }
 .navbar-toggle a {
-  color: darkorange;
+  color: white;
   font-size: 2rem;
   z-index: 1000;
 }
 
 .menu-bars {
-  font-size: 1.5rem;
+  font-size: 1rem;
   background: none;
   list-style: none;
   z-index: 1000;
 }
 
 .nav-menu {
-  background-color: rgba(27, 7, 65, 0.9);
+  /* margin-bottom: 30px; */
+  background-color: rgb(73, 72, 72);
   height: 100vh;
   width: 250px;
-  display: flex;
-  content: center;
-  align-items: center;
   position: fixed;
   top: 0;
-  left: -100%;
+  right: -100%;
   transition: 1s;
   z-index: 1000;
+}
+.side-menu {
+  background-color: rgb(99, 97, 97);
 }
 .nav-menu-items {
   width: 100%;
 }
+.color-secondary {
+  color: rgb(189, 183, 183);
+  border-top: 2px solid rgb(189, 183, 183);
+}
 .nav-menu.active {
-  left: 0;
+  right: 0;
   transition: 250ms;
-  align-items: center;
+}
+.customBtn {
+  width: 50px !important;
+}
+.customBtn2 {
+  width: 30px !important;
+  height: 50px !important;
+  color: white;
 }
 
 .nav-text {
   list-style: none;
   padding: 8px 0px 8px 16px;
-  align-items: center;
+  /* align-items: center; */
   display: flex;
   height: 100px;
 }
 
 .nav-text a {
   text-decoration: none;
-  color: darkorange;
+  color: white;
   border-radius: 4px;
 }
 
 .nav-text a:hover {
-  background-color: darkorange;
+  transition: 1s;
+  /* background-color: darkorange; */
   color: black;
 }
 
 ul {
   list-style: none;
+  margin-left: -20px;
+  width: 100%;
 }
-span {
-  margin-left: 6px;
+.hamburger {
+  margin-right: -10px;
 }
 
 .footer {
-  color: darkorange;
+  color: white;
   background-color: rgba(27, 7, 65, 0.9);
   font-size: 1rem;
   position: fixed;
   width: 100%;
   bottom: 0;
+}
+.resultSection {
+  height: 200px;
+  overflow-y: scroll;
+}
+
+.printBtn {
+  background-color: rgb(53, 148, 61);
 }

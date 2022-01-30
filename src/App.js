@@ -1,43 +1,49 @@
-import NavBar from "./Components/NavBar";
-import Footer from "./Components/footer";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
-import Transaction from "./Pages/Transaction";
-import TransactionSummary from "./Components/graph";
 
 import { useState } from "react";
 
 import "./App.css";
 
 function App() {
-  const [transactionSearched, setTransactionSearched] = useState("business");
-  function searchTransaction(transactionNumber) {
-    setTransactionSearched(transactionNumber);
-  }
-  function executeTransaction() {
-    console.log(transactionSearched);
-    return transactionSearched.trim();
-  }
+  const [stake, setStake] = useState(5);
+
+  const [bets, setBet] = useState({ bets: "none" });
+  //stake function
+
+  const setStakeValue = (value) => {
+    setStake(value);
+    console.log(stake);
+  };
+  const getStake = () => {
+    return stake;
+  };
+  //bets function
+
+  const getBets = () => {
+    return bets;
+  };
+  const setBets = (bet) => {
+    setBet(bet);
+  };
+
   return (
     <>
       <Router>
-        <NavBar
-          search={(transactionNo) => searchTransaction(transactionNo)}
-          execute={() => executeTransaction()}
-        />
         <Routes>
           <Route
             path="/"
             exact
-            element={<Home execute={() => executeTransaction()} />}
+            element={
+              <Home
+                setValue={(value) => setStakeValue(value)}
+                getValue={() => getStake()}
+                setBet={(value) => setBets(value)}
+                getBet={() => getBets()}
+              />
+            }
           />
-          <Route
-            path="/transactions"
-            element={<Transaction execute={() => executeTransaction()} />}
-          />
-          <Route path="/summary" element={<TransactionSummary />} />
         </Routes>
-        <Footer />
       </Router>
     </>
   );

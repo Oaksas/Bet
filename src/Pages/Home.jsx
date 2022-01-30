@@ -1,109 +1,185 @@
-import React from "react";
+import { React, useState } from "react";
+
 import { Fragment } from "react/cjs/react.production.min";
 import "../Components/Css/homeCss.css";
-import Cryptos from "../Components/Cryptos";
-import axios from "axios";
-import { useState, useEffect } from "react";
-import Messaging from "react-cssfx-loading/lib/Messaging";
-import * as MdIcons from "react-icons/md";
-import * as FcIcons from "react-icons/fc";
+import "../Components/Css/navBar.css";
+import Tabs from "../Components/tabs";
+import BottomTabs from "../Components/bottomTabs";
+import Bottom from "../Components/Bottom";
+import RightSideBar from "../Components/rightSideBar";
+import NavBar from "../Components/NavBar";
 function Home(props) {
-  const url = `https://newsapi.org/v2/top-headlines?country=us&category=${props.execute()}&apiKey=dda2bbd515a64537b0176995b68f3eba`;
+  const row1Color = ["danger", "black", "danger", "black", "danger", "black"];
+  const row2Color = ["danger", "black", "danger", "black", "black", "danger"];
+  const row3Color = ["black", "danger", "black", "danger", "black", "danger"];
+  const row4Color = ["danger", "black", "danger", "black", "danger", "black"];
+  const row5Color = ["danger", "black", "danger", "black", "black", "danger"];
+  const row6Color = ["black", "danger", "black", "danger", "black", "danger"];
+  const [selectedBets, selectBet] = useState([]);
+  return (
+    <Fragment>
+      <div className="home ">
+        <div className="bg-white ">
+          <div className="row">
+            <div className="col-lg-9">
+              <div className="row">
+                <div className="col-lg-12">
+                  <NavBar getValue={() => props.getValue()} />
+                </div>
+                <div className="col-lg-5">
+                  <div className="row">
+                    <h1>
+                      <b>Exact Number</b>
+                    </h1>
 
-  const [news, setNews] = useState(null);
+                    <div class="btn-group my-1 text-white">
+                      {row1Color.map((color, index) => {
+                        return (
+                          <button
+                            type="button"
+                            className={
+                              selectedBets.includes(index + 1)
+                                ? "btn bg-primary customBtn2 mx-1"
+                                : "btn bg-" + color + " customBtn2 mx-1"
+                            }
+                            onClick={() => {
+                              if (selectedBets.includes(index + 1)) {
+                                var currentBet = selectedBets.filter(function (
+                                  e
+                                ) {
+                                  return e !== index + 1;
+                                });
 
-  useEffect(() => {
-    axios
-      .get(url)
-      .then((response) => {
-        setNews(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [url]);
-  if (news) {
-    return (
-      <Fragment>
-        <div className="mainColor">
-          <div className="bg-image p-5">
-            {news.articles.map((news, index) => {
-              return (
-                <div class="card mb-3">
-                  <div class="row g-0">
-                    <div class="col-md-4">
-                      <img
-                        src="https://www.verdict.co.uk/wp-content/uploads/2019/01/shutterstock_728180302-e1547115750181.jpg"
-                        className="img-fluid rounded"
-                        alt="..."
-                      />
+                                selectBet(currentBet);
+                                console.log(selectedBets);
+                              } else {
+                                currentBet = selectedBets;
+                                currentBet.push(index + 1);
+                                selectBet(currentBet);
+                                console.log(selectedBets);
+                              }
+                            }}
+                          >
+                            {index + 1}
+                          </button>
+                        );
+                      })}
                     </div>
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <h6 class="card-title text-warning">
-                          Transaction Number -
-                          0xb5c8bd9430b6cc87a0e2fe110ece6bf527fa4f170a4bc8cd032f768fc5219838
-                        </h6>
-                        <p class="card-text ">
-                          <h6>Account </h6>
-                          <h6 className="text-warning">
-                            0xb5c8bd9430b6cc87a0e2fe110ece6
-                          </h6>
-                        </p>
-                        <p class="card-text">
-                          <h6>
-                            Transaction type -{" "}
-                            <small className="text-warning">Type</small>{" "}
-                          </h6>
-                        </p>
-                        <p class="card-text">
-                          <h6>
-                            Transaction Hash -{" "}
-                            <small className="text-warning">
-                              {" "}
-                              0xb5c8bd9430b6cc87a0e2fe110ece6bf527fa4f170a4bc8cd032f768fc5219838
-                            </small>{" "}
-                          </h6>
-                        </p>
-                        <p class="card-text">
-                          <h6>
-                            Is mined -{" "}
-                            <small className="text-warning">
-                              {" "}
-                              <FcIcons.FcApproval color="darkorange" />
-                            </small>{" "}
-                          </h6>
-                        </p>
-                        <p class="card-text">
-                          <small class="text-muted">
-                            <MdIcons.MdTimelapse color="darkorange" />3 mins ago
-                          </small>
-                        </p>
-                      </div>
+                    <div class="btn-group my-1 text-white">
+                      {row2Color.map((color, index) => {
+                        return (
+                          <button
+                            type="button"
+                            className={
+                              selectedBets.includes(index + 7)
+                                ? "btn bg-primary customBtn2 mx-1"
+                                : "btn bg-" + color + " customBtn2 mx-1"
+                            }
+                            onClick={() => {
+                              if (selectedBets.includes(index + 7)) {
+                                var currentBet = selectedBets.filter(function (
+                                  e
+                                ) {
+                                  return e !== index + 7;
+                                });
+
+                                selectBet(currentBet);
+                                console.log(selectedBets);
+                              } else {
+                                currentBet = selectedBets;
+                                currentBet.push(index + 7);
+                                selectBet(currentBet);
+                                console.log(selectedBets);
+                              }
+                            }}
+                          >
+                            {index + 7}
+                          </button>
+                        );
+                      })}
+                    </div>
+                    <div class="btn-group my-1 text-white">
+                      {row3Color.map((color, index) => {
+                        return (
+                          <button
+                            type="button"
+                            class={"btn bg-" + color + " customBtn2 mx-1"}
+                            onClick={() => console.log(index + 13)}
+                          >
+                            {index + 13}
+                          </button>
+                        );
+                      })}
+                    </div>
+                    <div class="btn-group my-1 text-white">
+                      {row4Color.map((color, index) => {
+                        return (
+                          <button
+                            type="button"
+                            class={"btn bg-" + color + " customBtn2 mx-1"}
+                            onClick={() => console.log(index + 19)}
+                          >
+                            {index + 19}
+                          </button>
+                        );
+                      })}
+                    </div>
+                    <div class="btn-group my-1 text-white">
+                      {row5Color.map((color, index) => {
+                        return (
+                          <button
+                            type="button"
+                            class={"btn bg-" + color + " customBtn2 mx-1"}
+                            onClick={() => console.log(index + 25)}
+                          >
+                            {index + 25}
+                          </button>
+                        );
+                      })}
+                    </div>
+                    <div class="btn-group my-1 text-white">
+                      {row6Color.map((color, index) => {
+                        return (
+                          <button
+                            type="button"
+                            class={"btn bg-" + color + " customBtn2 mx-1"}
+                            onClick={() => console.log(index + 31)}
+                          >
+                            {index + 31}
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
+                  <div className="row">
+                    <BottomTabs />
+                  </div>
                 </div>
-              );
-            })}
+                <div className="col-lg-7 ">
+                  <Tabs
+                    selectedBet={selectedBets}
+                    selectBet={(value) => selectBet(value)}
+                  />
+                </div>
+              </div>
+            </div>
 
-            <div className="d-sm-none d-xs-none d-md-none d-lg-block d-inline-flex weather">
-              <Cryptos className="rounded" />
+            <div className="col-lg-3 ">
+              <RightSideBar
+                setValue={(value) => props.setValue(value)}
+                getValue={() => props.getValue()}
+                selectedBets={selectedBets}
+                selectBets={(value) => selectBet(value)}
+              />
             </div>
           </div>
+          <div className="row">
+            <Bottom />
+          </div>
         </div>
-      </Fragment>
-    );
-  } else {
-    return (
-      <Messaging
-        className="loading"
-        color="#ff8500"
-        width="25px"
-        height="25px"
-        duration="1s"
-      />
-    );
-  }
+      </div>
+    </Fragment>
+  );
 }
 
 export default Home;

@@ -1,0 +1,120 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+
+body {
+  background: #fff;
+}
+
+/* .container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 500px;
+  height: 300px;
+  background: #f1f1f1;
+  margin: 100px auto 0;
+  word-break: break-all;
+  border: 1px solid rgba(0, 0, 0, 0.274);
+} */
+
+.bloc-tabs {
+  display: flex;
+  width: 70%;
+  height: 30px;
+}
+.tabs {
+  border: none;
+
+  padding: 10px;
+  /* text-align: center; */
+  width: 50%;
+  background: rgba(128, 128, 128, 0.075);
+  cursor: pointer;
+  border-bottom: 1px solid rgba(148, 145, 145, 0.274);
+  box-sizing: content-box;
+  position: relative;
+  outline: none;
+}
+.tabs:not(:last-child) {
+  border-right: 1px solid rgba(0, 0, 0, 0.274);
+}
+
+.active-tabs {
+  background: white;
+  border-bottom: 1px solid transparent;
+}
+
+.active-tabs::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 2px);
+  height: 2px;
+}
+
+.content-tabs {
+  flex-grow: 1;
+}
+.btnGray {
+  border: solid 1px gray;
+  width: 150px;
+}
+.content {
+  background: white;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.content h2 {
+  padding: 0px 0 5px 0px;
+}
+.content hr {
+  width: 100%;
+  height: 2px;
+  background: #222;
+  margin-bottom: 5px;
+}
+.content p {
+  width: 100%;
+  height: 100%;
+}
+.active-content {
+  display: block;
+}
+.btn-group {
+  width: 100%;
+}
+.btnBottom {
+  border: solid 1px gray;
+  width: 10px !important;
+}
+.btnBottom2 {
+  background-color: rgba(28, 28, 133, 0.9);
+  border-right: solid 1px black;
+}
+
+.justify-left {
+  align-items: left;
+}
+.btnClicked {
+  background-color: rgba(79, 79, 184, 0.9);
+}
+
+.btnBlackCss.active {
+  background-color: black;
+  color: white;
+}
+.btnGreenCss.active {
+  background-color: green;
+  color: white;
+}
