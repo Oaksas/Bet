@@ -8,6 +8,10 @@ function Tabs(props) {
   const toggleTab = (index) => {
     setToggleState(index);
   };
+  const [totalBets, setTotalBets] = useState(0);
+  const [oneTwelve, setOneTwelve] = useState(false);
+  const [thirteenTwenty, setthirteenTwenty] = useState(false);
+  const [twentyFiveThirty, settwentyFiveThirty] = useState(false);
 
   return (
     <div className="container">
@@ -16,19 +20,19 @@ function Tabs(props) {
           className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
           onClick={() => toggleTab(1)}
         >
-          <h6>Main</h6>
+          <small>Main</small>
         </button>
         <button
           className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
           onClick={() => toggleTab(2)}
         >
-          <h6> SECTORS/FINALS</h6>{" "}
+          <small> SECTORS/FINALS</small>{" "}
         </button>
         <button
           className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
           onClick={() => toggleTab(3)}
         >
-          <h6> EXTRA BETS</h6>{" "}
+          <small>EXTRA BETS</small>
         </button>
       </div>
 
@@ -124,7 +128,11 @@ function Tabs(props) {
           <div class="btn-group my-2">
             <button
               type="button"
-              class="btn btnGray btn-lg mx-1"
+              class={
+                oneTwelve
+                  ? "btn btnClicked btn-lg mx-1"
+                  : "btn btnGray btn-lg mx-1"
+              }
               onClick={() => {
                 if (
                   props.selectedBet.includes(12) ||

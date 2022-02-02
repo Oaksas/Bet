@@ -16,6 +16,7 @@ function Home(props) {
   const row5Color = ["danger", "black", "danger", "black", "black", "danger"];
   const row6Color = ["black", "danger", "black", "danger", "black", "danger"];
   const [selectedBets, selectBet] = useState([]);
+  console.log(props);
   return (
     <Fragment>
       <div className="home ">
@@ -24,7 +25,13 @@ function Home(props) {
             <div className="col-lg-9">
               <div className="row">
                 <div className="col-lg-12">
-                  <NavBar getValue={() => props.getValue()} />
+                  <NavBar
+                    getValue={() => props.getValue()}
+                    payTable={props.payTable}
+                    setPayTable={(value) => props.setPayTable(value)}
+                    shopAdmin={props.shopAdmin}
+                    setshopAdmin={(value) => props.setshopAdmin(value)}
+                  />
                 </div>
                 <div className="col-lg-5">
                   <div className="row">
@@ -250,6 +257,9 @@ function Home(props) {
                 getValue={() => props.getValue()}
                 selectedBets={selectedBets}
                 selectBets={(value) => selectBet(value)}
+                trigger={props.trigger}
+                setTrigger={(value) => props.setTrigger(value)}
+                ticketID={props.ticketID}
               />
             </div>
           </div>

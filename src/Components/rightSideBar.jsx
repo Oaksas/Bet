@@ -11,13 +11,11 @@ import { IconContext } from "react-icons";
 
 import { Link } from "react-router-dom";
 import "./Css/navBar.css";
-import Ticket from "../Pages/printComponent";
+import { Ticket } from "../Pages/printComponent";
 export default function RightSideBar(props) {
   const [sidebar, setSideBar] = useState(false);
   const showSideBar = () => setSideBar(!sidebar);
-  const [totalBets, setTotalBets] = useState(0);
   let componentRef = useRef();
-
   return (
     <Fragment>
       <IconContext.Provider value={{ color: "" }}>
@@ -58,7 +56,7 @@ export default function RightSideBar(props) {
               </div>
             </div>
             <div className="bg-white mx-1 resultSection text-primary ">
-              {props.selectedBets.map((bets) => {
+              {props.selectedBets.map((bets, key) => {
                 return (
                   <div className="row text-primary">
                     <div className="col-lg-6">
@@ -205,13 +203,16 @@ export default function RightSideBar(props) {
                     });
 
                     props.selectBets(currentBet);
-                    console.log(props.selectedBets);
                   }
                 }}
               >
                 <AiIcons.AiOutlineClose color="red" />
               </button>
-              <button type="button" className="btn bg-white customBtn mx-1">
+              <button
+                type="button"
+                className="btn bg-white customBtn mx-1"
+                onClick={() => props.setTrigger(true)}
+              >
                 <AiIcons.AiOutlineBarcode color="black" />
               </button>
               <ReactToPrint
@@ -220,9 +221,17 @@ export default function RightSideBar(props) {
                     <AiIcons.AiOutlinePrinter color="white" />
                   </button>
                 )}
-                content={() => componentRef}
+                content={() => componentRef.current}
               />
-              <Ticket ref={(el) => (componentRef = el)} />
+              <div className="d-none">
+                {" "}
+                <Ticket
+                  ref={componentRef}
+                  ticketID={props.ticketID}
+                  selectedBets={props.selectedBets}
+                  getValue={props.getValue()}
+                />
+              </div>
             </div>
           </div>
         </nav>

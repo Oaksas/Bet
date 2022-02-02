@@ -118,3 +118,7 @@ body {
   background-color: green;
   color: white;
 }
+.btnClicked {
+  background-color: rgb(67, 67, 247);
+  color: white;
+}
