@@ -21,3 +21,7 @@
   border-radius: 10px;
   padding: 10px;
 }
+.btnClickedCircle {
+  border-radius: 50%;
+  background: linear-gradient(red, purple, orange);
+}

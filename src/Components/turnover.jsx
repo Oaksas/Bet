@@ -1,11 +1,8 @@
 import { Fragment } from "react";
-import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import "./Css/popup.css";
-import * as FcIcons from "react-icons/fc";
-import * as GiIcons from "react-icons/gi";
+
 import * as GrIcons from "react-icons/gr";
-import * as BsIcons from "react-icons/bs";
 
 export default function Turnover(props) {
   return (

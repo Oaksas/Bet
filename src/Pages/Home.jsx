@@ -44,11 +44,7 @@ function Home(props) {
                         return (
                           <button
                             type="button"
-                            className={
-                              selectedBets.includes(index + 1)
-                                ? "btn bg-primary customBtn2 mx-1"
-                                : "btn bg-" + color + " customBtn2 mx-1"
-                            }
+                            className={"btn bg-" + color + " customBtn2 mx-1"}
                             onClick={() => {
                               if (selectedBets.includes(index + 1)) {
                                 var currentBet = selectedBets.filter(function (
@@ -67,7 +63,16 @@ function Home(props) {
                               }
                             }}
                           >
-                            {index + 1}
+                            <div
+                              className={
+                                selectedBets.includes(index + 1)
+                                  ? "bg-warning text-black rounded-circle"
+                                  : ""
+                              }
+                            >
+                              {" "}
+                              {index + 1}
+                            </div>
                           </button>
                         );
                       })}
