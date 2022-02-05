@@ -139,7 +139,7 @@ function Tabs(props) {
                   props.selectedBet.includes(1)
                 ) {
                   var currentBet = props.selectedBet.filter(function (e) {
-                    return e != 1 && e != 12;
+                    return e !== 1 && e !== 12;
                   });
                   console.log(props.selectedBet);
 
@@ -163,7 +163,7 @@ function Tabs(props) {
                   props.selectedBet.includes(24)
                 ) {
                   var currentBet = props.selectedBet.filter(function (e) {
-                    return e != 13 && e != 24;
+                    return e !== 13 && e !== 24;
                   });
 
                   props.selectBet(currentBet);
@@ -187,7 +187,7 @@ function Tabs(props) {
                   props.selectedBet.includes(36)
                 ) {
                   var currentBet = props.selectedBet.filter(function (e) {
-                    return e != 25 && e != 36;
+                    return e !== 25 && e !== 36;
                   });
 
                   props.selectBet(currentBet);
@@ -214,7 +214,7 @@ function Tabs(props) {
               onClick={() => {
                 if (props.selectedBet.includes("Even")) {
                   var currentBet = props.selectedBet.filter(function (e) {
-                    return e != "Even";
+                    return e !== "Even";
                   });
 
                   props.selectBet(currentBet);
@@ -235,7 +235,7 @@ function Tabs(props) {
               onClick={() => {
                 if (props.selectedBet.includes("Odd")) {
                   var currentBet = props.selectedBet.filter(function (e) {
-                    return e != "Odd";
+                    return e !== "Odd";
                   });
 
                   props.selectBet(currentBet);
@@ -261,7 +261,7 @@ function Tabs(props) {
               onClick={() => {
                 if (props.selectedBet.includes("High")) {
                   var currentBet = props.selectedBet.filter(function (e) {
-                    return e != "High";
+                    return e !== "High";
                   });
 
                   props.selectBet(currentBet);
@@ -282,7 +282,7 @@ function Tabs(props) {
               onClick={() => {
                 if (props.selectedBet.includes("Low")) {
                   var currentBet = props.selectedBet.filter(function (e) {
-                    return e != "Low";
+                    return e !== "Low";
                   });
 
                   props.selectBet(currentBet);
