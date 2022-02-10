@@ -26,7 +26,7 @@ function Home(props) {
 
   const [selectedBets, selectBet] = useState([]);
   useEffect(() => {
-    const socket = socketIOClient("http://virtual-bets.herokuapp.com/");
+    const socket = socketIOClient("https://virtual-bets.herokuapp.com/");
     socket.on("FromAPI", (data) => {
       console.log(data);
       setTimer(data.minute + ":" + data.second);
