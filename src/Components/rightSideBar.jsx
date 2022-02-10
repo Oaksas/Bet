@@ -12,6 +12,7 @@ import { IconContext } from "react-icons";
 import { Link } from "react-router-dom";
 import "./Css/navBar.css";
 import { Ticket } from "../Pages/printComponent";
+import sendBets from "../Functions/requests";
 export default function RightSideBar(props) {
   const [sidebar, setSideBar] = useState(false);
   const showSideBar = () => setSideBar(!sidebar);
@@ -187,7 +188,7 @@ export default function RightSideBar(props) {
                     });
 
                     props.selectBets(currentBet);
-                    console.log(props.selectedBets);
+                    sendBets(currentBet, props.getValue());
                   }
                 }}
               >

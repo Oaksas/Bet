@@ -1,8 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
-
 import { useState } from "react";
-
 import "./App.css";
 import TicketCheck from "./Components/ticketCheck";
 import PayTable from "./Components/payTable";
@@ -15,6 +13,7 @@ function App() {
   const [payTable, setPayTable] = useState(false);
   const [shopAdmin, setshopAdmin] = useState(false);
   const [ticketID, setTicketID] = useState(null);
+
   //stake function
 
   const setStakeValue = (value) => {

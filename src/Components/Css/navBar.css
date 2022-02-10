@@ -1,6 +1,6 @@
 .navBar {
   /* display: flex; */
-
+  margin-right: -17px;
   background-color: rgb(28, 28, 133);
   align-items: center;
   z-index: 1000;
