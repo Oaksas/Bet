@@ -88,6 +88,21 @@ export const Ticket = React.forwardRef((props, ref) => {
           </div>
         </div>
       </div>
+
+      <div className="border border-dark">
+        {" "}
+        <div className="row">
+          <div className="col-8">
+            <small> Total win </small>
+          </div>
+          <div className="col-4">
+            <small>
+              {" "}
+              <b> {"ብር " + props.total}</b>
+            </small>
+          </div>
+        </div>
+      </div>
       <div className="border border-dark">
         {" "}
         <div className="row">
@@ -97,7 +112,7 @@ export const Ticket = React.forwardRef((props, ref) => {
           <div className="col-4">
             <small>
               {" "}
-              <b> {"ብር " + props.getValue * props.selectedBets.length * 3}</b>
+              <b> {"ብር " + 50000}</b>
             </small>
           </div>
         </div>

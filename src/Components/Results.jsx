@@ -1,29 +1,47 @@
-import { Fragment } from "react";
+import { Fragment, useState, useEffect } from "react";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import "./Css/popup.css";
 import * as FcIcons from "react-icons/fc";
 import * as GiIcons from "react-icons/gi";
-
+import axios from "axios";
 export default function Results(props) {
-  const options = ["one", "two", "three"];
+  const options = ["SPIN 2 WIN"];
   const defaultOption = options[0];
-
+  const [result, setResult] = useState([]);
+  const results = () => {
+    try {
+      axios
+        .get(
+          "http://virtual-bet-frontend.herokuapp.com/api/result/roundsresult/"
+        )
+        .then((response) => {
+          console.log(response.data.results);
+          setResult(response.data.results);
+        });
+    } catch (e) {
+      setResult([]);
+    }
+  };
+  useEffect(() => {
+    results();
+  }, []);
   return (
     <Fragment>
       <div className="row ">
         <div className="col-lg-12 mt-1 d-none-sm">
           <h5>Results</h5>
         </div>
-        <div className="col-lg-2 d-none-sm">
+        <div className="col-lg-3 d-none-sm">
           <Dropdown
             options={options}
             value={defaultOption}
             placeholder="Select an option"
             size="sm"
+            className="verySmallText"
           />
         </div>
-        <div className="col-lg-10 d-none-sm  d-flex justify-content-end">
+        <div className="col-lg-9 d-none-sm  d-flex justify-content-end">
           <button className="btn bg-black text-white">
             {" "}
             Print Last Results
@@ -35,7 +53,7 @@ export default function Results(props) {
         <thead className="">
           <tr>
             <th scope="col">
-              <small>TicketID</small>
+              <small>EventID</small>
             </th>
             <th scope="col">
               <small>Date / Time</small>
@@ -44,68 +62,30 @@ export default function Results(props) {
               <small>Results</small>
             </th>
             <th scope="col">
-              <small>Win</small>
-            </th>
-            <th scope="col">
-              <small>Place(1-2)</small>
-            </th>
-            <th scope="col">
-              <small>Show(1-3)</small>
-            </th>
-            <th scope="col">
-              <small>Exacta</small>
-            </th>
-            <th scope="col">
-              <small>Quinella</small>
-            </th>
-            <th scope="col">
-              <small>Trifecta</small>
-            </th>
-            <th scope="col">
-              <small>Even /Odd </small>
-            </th>
-            <th scope="col">
-              <small>Over / Under</small>
+              <small>Round</small>
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr className="text-secondary">
-            <th scope="row">
-              <small>3432e323</small>
-            </th>
-            <td>
-              <small>28/01/2022 21:00</small>
-            </td>
-            <td>
-              <FcIcons.FcPrint />
-            </td>
-            <td>
-              <small>34445</small>
-            </td>
-            <td>
-              <small>3444665</small>
-            </td>
-            <td>
-              <GiIcons.GiSpinningBlades /> <small>Spin to win</small>
-            </td>
-            <td>
-              <small>Single</small>
-            </td>
-            <td>
-              <small>15</small>
-            </td>
+          {result.map((result, key) => {
+            return (
+              <tr className="text-secondary">
+                <th scope="row">
+                  <small>3432e323</small>
+                </th>
+                <td>
+                  <small>{result.created_at}</small>
+                </td>
 
-            <td>
-              <small>ETH</small>
-            </td>
-            <td>
-              <small>Lost</small>
-            </td>
-            <td className="text-primary">
-              <small>DETAILS</small>{" "}
-            </td>
-          </tr>
+                <td>
+                  <small>{result.result}</small>
+                </td>
+                <td>
+                  <small>{result.round}</small>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </Fragment>

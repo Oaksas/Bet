@@ -9,6 +9,6 @@ export default function sendBets(bet, stake) {
   console.log(bets);
 
   axios
-    .post("http://virtual-bets.herokuapp.com/api/bet/placebet/", bets)
+    .post("http://virtual-bet-frontend.herokuapp.com/api/bet/placebet/", bets)
     .then((response) => console.log(response));
 }

@@ -1,8 +1,7 @@
 import { React, useState, useEffect } from "react";
 import socketIOClient from "socket.io-client";
-import * as MdIcons from "react-icons/md";
 import SpinStretch from "react-cssfx-loading/lib/SpinStretch";
-
+import axios from "axios";
 import { Fragment } from "react/cjs/react.production.min";
 import "../Components/Css/homeCss.css";
 import "../Components/Css/navBar.css";
@@ -23,25 +22,53 @@ function Home(props) {
 
   const [timer, setTimer] = useState("00:00");
   const [disable, setDisable] = useState(false);
+  const [odds, setOdds] = useState([]);
 
   const [selectedBets, selectBet] = useState([]);
+  const Odd = () => {
+    try {
+      axios
+        .get("http://virtual-bets.herokuapp.com/api/bet/odds")
+        .then((response) => {
+          // setOdds(response.data.odds);
+          var temp = [];
+          temp.push(
+            response.data.odds.number,
+            response.data.odds.green,
+            response.data.odds.red,
+            response.data.odds.black,
+            response.data.odds.dozens,
+            response.data.odds.low,
+            response.data.odds.high,
+            response.data.odds.odd,
+            response.data.odds.even
+          );
+          setOdds(temp);
+        });
+    } catch (e) {
+      console.log("Error loading the odds");
+    }
+  };
   useEffect(() => {
-    const socket = socketIOClient("https://virtual-bets.herokuapp.com/");
-    socket.on("FromAPI", (data) => {
-      console.log(data);
-      setTimer(data.minute + ":" + data.second);
-      setDisable(data.pause);
-    });
+    // const socket = socketIOClient("https://virtual-bets.herokuapp.com/");
+    // socket.on("FromAPI", (data) => {
+    //   setTimer(data.minute + ":" + data.second);
+    //   setDisable(data.pause);
+    // });
+    Odd();
   }, []);
-
+  // if (!localStorage.getItem("isAuthenticated")) {
+  //   window.location.pathname = "/login";
+  // } else
+  //{
   return (
     <Fragment>
-      <div className="home  ">
-        <div className="bg-white ">
-          <div className="row">
-            <div className="col-lg-9">
-              <div className="row">
-                <div className="col-lg-12">
+      <div className='home  '>
+        <div className='bg-white '>
+          <div className='row'>
+            <div className='col-lg-9'>
+              <div className='row'>
+                <div className='col-lg-12'>
                   <NavBar
                     getValue={() => props.getValue()}
                     payTable={props.payTable}
@@ -54,32 +81,32 @@ function Home(props) {
                 {disable ? (
                   <Fragment>
                     {" "}
-                    <div className="col-lg-12 overlayStop">
-                      <div className="center">
+                    <div className='col-lg-12 overlayStop'>
+                      <div className='center'>
                         <SpinStretch
-                          color="#ff5b00"
-                          width="100px"
-                          height="100px"
-                          duration="1s"
+                          color='#ff5b00'
+                          width='100px'
+                          height='100px'
+                          duration='1s'
                         />
-                        <div className=" display-4 ml-1"> MARKET CLOSED</div>
+                        <div className=' display-4 ml-1'> MARKET CLOSED</div>
                       </div>
                     </div>
                   </Fragment>
                 ) : (
                   <Fragment>
                     {" "}
-                    <div className="col-lg-5 ">
-                      <div className="row">
-                        <h1>
+                    <div className='col-lg-5 '>
+                      <div className='row'>
+                        <h2>
                           <b>Exact Number</b>
-                        </h1>
+                        </h2>
 
-                        <div class="btn-group my-1 text-white">
+                        <div class='btn-group my-1 text-white'>
                           {row1Color.map((color, index) => {
                             return (
                               <button
-                                type="button"
+                                type='button'
                                 className={
                                   "btn bg-" + color + " customBtn2 mx-1"
                                 }
@@ -96,6 +123,8 @@ function Home(props) {
                                   } else {
                                     currentBet = selectedBets;
                                     currentBet.push(index + 1);
+                                    // currentOdd = selectedOdds;
+                                    // currentOdd.push(odds.number);
 
                                     selectBet(currentBet);
                                   }
@@ -115,11 +144,11 @@ function Home(props) {
                             );
                           })}
                         </div>
-                        <div class="btn-group my-1 text-white">
+                        <div class='btn-group my-1 text-white'>
                           {row2Color.map((color, index) => {
                             return (
                               <button
-                                type="button"
+                                type='button'
                                 className={
                                   "btn bg-" + color + " customBtn2 mx-1"
                                 }
@@ -153,11 +182,11 @@ function Home(props) {
                             );
                           })}
                         </div>
-                        <div class="btn-group my-1 text-white">
+                        <div class='btn-group my-1 text-white'>
                           {row3Color.map((color, index) => {
                             return (
                               <button
-                                type="button"
+                                type='button'
                                 className={
                                   "btn bg-" + color + " customBtn2 mx-1"
                                 }
@@ -191,11 +220,11 @@ function Home(props) {
                             );
                           })}
                         </div>
-                        <div class="btn-group my-1 text-white">
+                        <div class='btn-group my-1 text-white'>
                           {row4Color.map((color, index) => {
                             return (
                               <button
-                                type="button"
+                                type='button'
                                 className={
                                   "btn bg-" + color + " customBtn2 mx-1"
                                 }
@@ -229,11 +258,11 @@ function Home(props) {
                             );
                           })}
                         </div>
-                        <div class="btn-group my-1 text-white">
+                        <div class='btn-group my-1 text-white'>
                           {row5Color.map((color, index) => {
                             return (
                               <button
-                                type="button"
+                                type='button'
                                 className={
                                   "btn bg-" + color + " customBtn2 mx-1"
                                 }
@@ -267,11 +296,11 @@ function Home(props) {
                             );
                           })}
                         </div>
-                        <div class="btn-group my-1 text-white">
+                        <div class='btn-group my-1 text-white'>
                           {row6Color.map((color, index) => {
                             return (
                               <button
-                                type="button"
+                                type='button'
                                 className={
                                   "btn bg-" + color + " customBtn2 mx-1"
                                 }
@@ -308,11 +337,11 @@ function Home(props) {
                           })}
                         </div>
                       </div>
-                      <div className="row">
+                      <div className='row'>
                         <BottomTabs />
                       </div>
                     </div>
-                    <div className="col-lg-7 ">
+                    <div className='col-lg-7 '>
                       <Tabs
                         selectedBet={selectedBets}
                         selectBet={(value) => selectBet(value)}
@@ -323,7 +352,7 @@ function Home(props) {
               </div>
             </div>
 
-            <div className="col-lg-3 ">
+            <div className='col-lg-3 '>
               <RightSideBar
                 setValue={(value) => props.setValue(value)}
                 getValue={() => props.getValue()}
@@ -332,10 +361,14 @@ function Home(props) {
                 trigger={props.trigger}
                 setTrigger={(value) => props.setTrigger(value)}
                 ticketID={props.ticketID}
+                odds={odds}
+                setTotal={(value) => props.setTotal(value)}
+                total={props.total}
+                maxWin={props.maxWin}
               />
             </div>
           </div>
-          <div className="row">
+          <div className='row'>
             <Bottom />
           </div>
         </div>
@@ -343,5 +376,6 @@ function Home(props) {
     </Fragment>
   );
 }
+//}
 
 export default Home;

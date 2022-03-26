@@ -8,9 +8,21 @@
   align-items: center;
   z-index: 2000;
 }
+.verySmallText {
+  font-size: x-small;
+}
+.overflow {
+  height: 500px;
+  overflow-y: scroll;
+}
+.title {
+  border-bottom: solid black 2px;
+  font-weight: 400;
+}
 
 .popupInner {
   width: 70%;
+  height: 50vh;
   background-color: white;
 }
 

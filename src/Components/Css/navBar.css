@@ -75,7 +75,6 @@
 
 .nav-text a:hover {
   transition: 1s;
-  /* background-color: darkorange; */
   color: black;
 }
 
@@ -96,11 +95,16 @@ ul {
   width: 100%;
   bottom: 0;
 }
+
+/*Right side styles*/
 .resultSection {
   height: 200px;
   overflow-y: scroll;
+  padding-left: 10px;
 }
-
+.betsCard {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
 .printBtn {
   background-color: rgb(53, 148, 61);
 }

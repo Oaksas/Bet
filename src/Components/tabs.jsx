@@ -10,39 +10,40 @@ function Tabs(props) {
   };
 
   return (
-    <div className="container">
-      <div className="bloc-tabs">
+    <div className='container'>
+      <div className='bloc-tabs'>
         <button
-          className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
+          // className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
           onClick={() => toggleTab(1)}
+          className='btn bg-white'
         >
-          <small>Main</small>
+          <h5 className='mt-1'>Main</h5>
         </button>
-        <button
+        {/* <button
           className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
           onClick={() => toggleTab(2)}
         >
           <small> SECTORS/FINALS</small>{" "}
-        </button>
-        <button
+        </button> */}
+        {/* <button
           className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
           onClick={() => toggleTab(3)}
         >
           <small>EXTRA BETS</small>
-        </button>
+        </button> */}
       </div>
 
-      <div className="content-tabs">
+      <div className='content-tabs'>
         <div
           className={toggleState === 1 ? "content  active-content" : "content"}
         >
           <h4>Colours</h4>
           <hr />
 
-          <div class="btn-group my-2">
+          <div class='btn-group my-2'>
             <button
-              type="button"
-              class="btn btnGray btn-lg mx-1"
+              type='button'
+              class='btn btnGray btn-lg mx-1'
               className={
                 props.selectedBet.includes("Red")
                   ? "btn btnGray btn-lg bg-danger  mx-1"
@@ -55,19 +56,17 @@ function Tabs(props) {
                   });
 
                   props.selectBet(currentBet);
-                  console.log(props.selectedBet);
                 } else {
                   currentBet = props.selectedBet;
                   currentBet.push("Red");
                   props.selectBet(currentBet);
-                  console.log(props.selectedBet);
                 }
               }}
             >
               Red
             </button>
             <button
-              type="button"
+              type='button'
               className={
                 props.selectedBet.includes("Black")
                   ? "btn btnGray btn-lg btnBlackCss active mx-1"
@@ -80,19 +79,17 @@ function Tabs(props) {
                   });
 
                   props.selectBet(currentBet);
-                  console.log(props.selectedBet);
                 } else {
                   currentBet = props.selectedBet;
                   currentBet.push("Black");
                   props.selectBet(currentBet);
-                  console.log(props.selectedBet);
                 }
               }}
             >
               Black
             </button>
             <button
-              type="button"
+              type='button'
               className={
                 props.selectedBet.includes("Green")
                   ? "btn btnGray btn-lg btnGreenCss active mx-1"
@@ -105,12 +102,10 @@ function Tabs(props) {
                   });
 
                   props.selectBet(currentBet);
-                  console.log(props.selectedBet);
                 } else {
                   currentBet = props.selectedBet;
                   currentBet.push("Green");
                   props.selectBet(currentBet);
-                  console.log(props.selectedBet);
                 }
               }}
             >
@@ -121,9 +116,9 @@ function Tabs(props) {
           <h4>Dozens</h4>
           <hr />
 
-          <div class="btn-group my-2">
+          <div class='btn-group my-2'>
             <button
-              type="button"
+              type='button'
               class={"btn btnGray btn-lg mx-1"}
               onClick={() => {
                 if (
@@ -133,22 +128,20 @@ function Tabs(props) {
                   var currentBet = props.selectedBet.filter(function (e) {
                     return e !== 1 && e !== 12;
                   });
-                  console.log(props.selectedBet);
 
                   props.selectBet(currentBet);
                 } else {
                   currentBet = props.selectedBet;
                   currentBet.push(1, 12);
                   props.selectBet(currentBet);
-                  console.log(props.selectedBet);
                 }
               }}
             >
               1 ~ 12
             </button>
             <button
-              type="button"
-              class="btn btnGray btn-lg mx-1"
+              type='button'
+              class='btn btnGray btn-lg mx-1'
               onClick={() => {
                 if (
                   props.selectedBet.includes(13) ||
@@ -159,20 +152,18 @@ function Tabs(props) {
                   });
 
                   props.selectBet(currentBet);
-                  console.log(props.selectedBet);
                 } else {
                   currentBet = props.selectedBet;
                   currentBet.push(13, 24);
                   props.selectBet(currentBet);
-                  console.log(props.selectedBet);
                 }
               }}
             >
               13 ~ 24
             </button>
             <button
-              type="button"
-              class="btn btnGray btn-lg mx-1"
+              type='button'
+              class='btn btnGray btn-lg mx-1'
               onClick={() => {
                 if (
                   props.selectedBet.includes(25) ||
@@ -183,12 +174,10 @@ function Tabs(props) {
                   });
 
                   props.selectBet(currentBet);
-                  console.log(props.selectedBet);
                 } else {
                   currentBet = props.selectedBet;
                   currentBet.push(25, 36);
                   props.selectBet(currentBet);
-                  console.log(props.selectedBet);
                 }
               }}
             >
@@ -199,10 +188,10 @@ function Tabs(props) {
           <h4>Even / Odd</h4>
           <hr />
 
-          <div class="btn-group my-2">
+          <div class='btn-group my-2'>
             <button
-              type="button"
-              class="btn btnGray btn-lg mx-1"
+              type='button'
+              class='btn btnGray btn-lg mx-1'
               onClick={() => {
                 if (props.selectedBet.includes("Even")) {
                   var currentBet = props.selectedBet.filter(function (e) {
@@ -210,20 +199,18 @@ function Tabs(props) {
                   });
 
                   props.selectBet(currentBet);
-                  console.log(props.selectedBet);
                 } else {
                   currentBet = props.selectedBet;
                   currentBet.push("Even");
                   props.selectBet(currentBet);
-                  console.log(props.selectedBet);
                 }
               }}
             >
               Even{" "}
             </button>
             <button
-              type="button"
-              class="btn btnGray btn-lg mx-1"
+              type='button'
+              class='btn btnGray btn-lg mx-1'
               onClick={() => {
                 if (props.selectedBet.includes("Odd")) {
                   var currentBet = props.selectedBet.filter(function (e) {
@@ -231,12 +218,10 @@ function Tabs(props) {
                   });
 
                   props.selectBet(currentBet);
-                  console.log(props.selectedBet);
                 } else {
                   currentBet = props.selectedBet;
                   currentBet.push("Odd");
                   props.selectBet(currentBet);
-                  console.log(props.selectedBet);
                 }
               }}
             >
@@ -246,10 +231,10 @@ function Tabs(props) {
           <h4>High / Low</h4>
           <hr />
 
-          <div class="btn-group my-2">
+          <div class='btn-group my-2'>
             <button
-              type="button"
-              class="btn btnGray btn-lg mx-1"
+              type='button'
+              class='btn btnGray btn-lg mx-1'
               onClick={() => {
                 if (props.selectedBet.includes("High")) {
                   var currentBet = props.selectedBet.filter(function (e) {
@@ -257,20 +242,18 @@ function Tabs(props) {
                   });
 
                   props.selectBet(currentBet);
-                  console.log(props.selectedBet);
                 } else {
                   currentBet = props.selectedBet;
                   currentBet.push("High");
                   props.selectBet(currentBet);
-                  console.log(props.selectedBet);
                 }
               }}
             >
               High{" "}
             </button>
             <button
-              type="button"
-              class="btn btnGray btn-lg mx-1"
+              type='button'
+              class='btn btnGray btn-lg mx-1'
               onClick={() => {
                 if (props.selectedBet.includes("Low")) {
                   var currentBet = props.selectedBet.filter(function (e) {
@@ -278,12 +261,10 @@ function Tabs(props) {
                   });
 
                   props.selectBet(currentBet);
-                  console.log(props.selectedBet);
                 } else {
                   currentBet = props.selectedBet;
                   currentBet.push("Low");
                   props.selectBet(currentBet);
-                  console.log(props.selectedBet);
                 }
               }}
             >
@@ -292,7 +273,7 @@ function Tabs(props) {
           </div>
         </div>
 
-        <div
+        {/* <div
           className={toggleState === 2 ? "content  active-content" : "content"}
         >
           <h4>Second tab</h4>
@@ -304,7 +285,7 @@ function Tabs(props) {
         >
           <h4>Third tab</h4>
           <hr />
-        </div>
+        </div> */}
       </div>
     </div>
   );

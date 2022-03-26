@@ -5,6 +5,9 @@ import "./App.css";
 import TicketCheck from "./Components/ticketCheck";
 import PayTable from "./Components/payTable";
 import AdminShop from "./Components/shopAdmin";
+import TerminalCheck from "./Components/terminalCheck";
+import LogIn from "./Components/logIn";
+import ProtectedRoute from "./Components/Route/ProtectedRoute";
 function App() {
   const [stake, setStake] = useState(5);
 
@@ -13,6 +16,8 @@ function App() {
   const [payTable, setPayTable] = useState(false);
   const [shopAdmin, setshopAdmin] = useState(false);
   const [ticketID, setTicketID] = useState(null);
+  const [total, setTotal] = useState(0);
+  const [maxWin, setMaxWin] = useState(50000);
 
   //stake function
 
@@ -68,9 +73,14 @@ function App() {
                 setshopAdmin={(value) => setshopAdmin(value)}
                 ticketID={ticketID}
                 setTicketID={(value) => setTicketID(value)}
+                setTotal={(value) => setTotal(value)}
+                total={total}
+                maxWin={maxWin}
               />
             }
           />
+          <Route path="/login" exact element={<LogIn />} />
+          <Route path="/terminal" exact element={<TerminalCheck />} />
         </Routes>
       </Router>
     </>

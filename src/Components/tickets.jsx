@@ -1,14 +1,31 @@
-import { Fragment } from "react";
+import { Fragment, useState, useEffect } from "react";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import "./Css/popup.css";
 import * as FcIcons from "react-icons/fc";
 import * as GiIcons from "react-icons/gi";
-
+import axios from "axios";
 export default function Tickets(props) {
   const options = ["one", "two", "three"];
   const defaultOption = options[0];
+  const [closedBets, setClosedBets] = useState([]);
 
+  const closedTickets = () => {
+    try {
+      axios
+        .get(
+          "http://virtual-bet-frontend.herokuapp.com/api/ticket/closedtickets/"
+        )
+        .then((response) => {
+          setClosedBets(response.data);
+        });
+    } catch (e) {
+      setClosedBets([]);
+    }
+  };
+  useEffect(() => {
+    closedTickets();
+  }, []);
   return (
     <Fragment>
       <div className="row ">
@@ -57,87 +74,83 @@ export default function Tickets(props) {
           </button>
         </div>
       </div>
-      <table class="table mt-2">
-        <thead className="bg-secondary text-white">
-          <tr>
-            <th scope="col">
-              <small>TicketID</small>
-            </th>
-            <th scope="col">
-              <small>Date / Time</small>
-            </th>
-            <th scope="col">
-              <small>Print Status</small>
-            </th>
-            <th scope="col">
-              <small>Issued By</small>
-            </th>
-            <th scope="col">
-              <small>Event ID</small>
-            </th>
-            <th scope="col">
-              <small>Game</small>
-            </th>
-            <th scope="col">
-              <small>Type</small>
-            </th>
-            <th scope="col">
-              <small>Stake</small>
-            </th>
-            <th scope="col">
-              <small>Currency</small>
-            </th>
-            <th scope="col">
-              <small>Status</small>
-            </th>
-            <th scope="col">
-              <small>JP Win.</small>
-            </th>
-            <th scope="col">
-              <small></small>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="text-secondary">
-            <th scope="row">
-              <small>3432e323</small>
-            </th>
-            <td>
-              <small>28/01/2022 21:00</small>
-            </td>
-            <td>
-              <FcIcons.FcPrint />
-            </td>
-            <td>
-              <small>34445</small>
-            </td>
-            <td>
-              <small>3444665</small>
-            </td>
-            <td>
-              <GiIcons.GiSpinningBlades /> <small>Spin to win</small>
-            </td>
-            <td>
-              <small>Single</small>
-            </td>
-            <td>
-              <small>15</small>
-            </td>
+      <div className="overflow">
+        <table class="table mt-2  ">
+          <thead className="bg-secondary text-white">
+            <tr>
+              <th scope="col">
+                <small>TicketID</small>
+              </th>
+              <th scope="col">
+                <small>Date </small>
+              </th>
+              <th scope="col">
+                <small>Print Status</small>
+              </th>
+              <th scope="col">
+                <small>Issued By</small>
+              </th>
+              <th scope="col">
+                <small>Event ID</small>
+              </th>
+              <th scope="col">
+                <small>Game</small>
+              </th>
+              <th scope="col">
+                <small>Round</small>
+              </th>
+              <th scope="col">
+                <small>Stake</small>
+              </th>
+              <th scope="col">
+                <small>Currency</small>
+              </th>
+              <th scope="col">
+                <small>Status</small>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {closedBets.map((ticket, key) => {
+              return (
+                <tr className="text-secondary ">
+                  <th scope="row">
+                    <small className="verySmallText">{ticket.id}</small>
+                  </th>
+                  <td>
+                    <small>{ticket.created_at}</small>
+                  </td>
+                  <td>
+                    <FcIcons.FcPrint />
+                  </td>
+                  <td>
+                    <small>{ticket.cashier ? ticket.cashier : " "}</small>
+                  </td>
+                  <td>
+                    <small>3444665</small>
+                  </td>
+                  <td>
+                    <GiIcons.GiSpinningBlades /> <small>Spin to win</small>
+                  </td>
+                  <td>
+                    <small>{ticket.round}</small>
+                  </td>
+                  <td>
+                    <small>{ticket.stake}</small>
+                  </td>
 
-            <td>
-              <small>ETH</small>
-            </td>
-            <td>
-              <small>Lost</small>
-            </td>
-            <td>-</td>
-            <td className="text-primary">
-              <small>DETAILS</small>{" "}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+                  <td>
+                    <small>ETH</small>
+                  </td>
+                  <td>
+                    <small>{ticket.winStatus.toString()}</small>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </Fragment>
   );
 }

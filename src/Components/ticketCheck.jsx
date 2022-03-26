@@ -1,5 +1,6 @@
 import * as AiIcons from "react-icons/ai";
 import "./Css/popup.css";
+import axios from "axios";
 import { useState } from "react";
 export default function TicketCheck(props) {
   const alphabetCol1 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
@@ -17,6 +18,22 @@ export default function TicketCheck(props) {
   };
   const checkTicket = () => {
     props.setTicketID(ticketNum);
+    try {
+      axios
+        .post(
+          "http://virtual-bet-frontend.herokuapp.com/api/bet/payout/",
+          props.ticketID
+        )
+        .then((response) => {
+          if (response.data.status === "success") {
+            alert.show("Success ");
+          } else {
+            alert.show("Incorrect ");
+          }
+        });
+    } catch (e) {
+      alert.show("Incorrect Credential ");
+    }
   };
   return props.trigger ? (
     <div className="popup p-3">

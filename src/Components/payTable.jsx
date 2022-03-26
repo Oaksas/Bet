@@ -1,14 +1,42 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import * as AiIcons from "react-icons/ai";
 import "./Css/popup.css";
-
+import axios from "axios";
 export default function PayTable(props) {
-  const [ticketStatus, setTicketStatus] = useState("primary");
+  const [odds, setOdds] = useState([]);
 
+  const payTable = () => {
+    try {
+      axios
+        .get("http://virtual-bet-frontend.herokuapp.com/api/bet/odds")
+        .then((response) => {
+          // setOdds(response.data.odds);
+          var temp = [];
+          temp.push(
+            response.data.odds.number,
+            response.data.odds.green,
+            response.data.odds.red,
+            response.data.odds.black,
+            response.data.odds.dozens,
+            response.data.odds.low,
+            response.data.odds.high,
+            response.data.odds.odd,
+            response.data.odds.even
+          );
+          setOdds(temp);
+        });
+    } catch (e) {
+      console.log("Error loading the odds");
+    }
+  };
+
+  useEffect(() => {
+    payTable();
+  }, []);
   return props.payTable ? (
     <div className="popup p-3">
       <div className="popupInner px-2">
-        <div className={"row p-1 bg-" + ticketStatus}>
+        <div className={"row p-1 bg-primary"}>
           <div className="col-lg-11 ">
             <div className="row m-2 text-white">
               <div className="col-lg-12">Spin 2 Win Royale</div>
@@ -29,39 +57,35 @@ export default function PayTable(props) {
         </div>
 
         <div className="row  p-3">
-          <div className="col-lg-4  ">
+          <div className="col-lg-4 smallMargin">
             <div className="row ">
-              <div className="title d-inline">Main</div>
-              <div className="col-lg-12">
-                {" "}
-                <hr />
-              </div>
+              <div className="title d-inline  ">Menu</div>
             </div>
 
             <div className="row innerRow  mt-3">
               <div className="col-lg-10">Exact Number</div>
-              <div className="col-lg-2">30</div>
+              <div className="col-lg-2">{odds[0]}</div>
             </div>
             <div className="row innerRow">
               <div className="col-lg-10">Red/ Black</div>
-              <div className="col-lg-2">2</div>
+              <div className="col-lg-2">{odds[2]}</div>
             </div>
             <div className="row innerRow">
               <div className="col-lg-10">Green</div>
-              <div className="col-lg-2">36</div>
+              <div className="col-lg-2">{odds[1]}</div>
             </div>
 
             <div className="row innerRow">
               <div className="col-lg-10">Dozens</div>
-              <div className="col-lg-2">3</div>
+              <div className="col-lg-2">{odds[4]}</div>
             </div>
             <div className="row innerRow">
               <div className="col-lg-10">Even / Odd</div>
-              <div className="col-lg-2">2</div>
+              <div className="col-lg-2">{odds[7]}</div>
             </div>
             <div className="row innerRow">
               <div className="col-lg-10">Low / High</div>
-              <div className="col-lg-2">2</div>
+              <div className="col-lg-2">{odds[5]}</div>
             </div>
           </div>
           <div className="col-lg-4 ">
@@ -81,7 +105,7 @@ export default function PayTable(props) {
               <div className="col-lg-2">9</div>
             </div>
           </div>
-          <div className="col-lg-4 smallMargin">
+          <div className="col-lg-4 ">
             <div className="row">
               <div className="title d-inine">Extra Bets</div>
             </div>
