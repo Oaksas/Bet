@@ -30,7 +30,7 @@ function Home(props) {
   const Odd = () => {
     try {
       axios
-        .get("http://virtual-bets.herokuapp.com/api/bet/odds")
+        .get("https://virtual-bets.herokuapp.com/api/bet/odds")
         .then((response) => {
           // setOdds(response.data.odds);
           var temp = [];
