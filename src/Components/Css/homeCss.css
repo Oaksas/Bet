@@ -31,3 +31,17 @@
   justify-content: center;
   align-items: center;
 }
+.homepage {
+  position: fixed;
+}
+.titleGame {
+  font-size: 1.7rem;
+  font-weight: bolder;
+}
+
+.smallFont {
+  font-size: 0.6rem !important;
+}
+.margin-right {
+  margin-right: 2px;
+}

@@ -58,6 +58,11 @@
   height: 50px !important;
   color: white;
 }
+.customBtn3 {
+  width: 35px !important;
+  height: 30px !important;
+  color: white;
+}
 
 .nav-text {
   list-style: none;

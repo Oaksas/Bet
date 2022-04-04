@@ -68,6 +68,10 @@ body {
   border: solid 1px gray;
   width: 150px;
 }
+.btnKuno {
+  border: solid 1px gray;
+  width: 50px;
+}
 .content {
   background: white;
   padding: 20px;
@@ -106,19 +110,12 @@ body {
 .justify-left {
   align-items: left;
 }
-.btnClicked {
-  background-color: rgba(79, 79, 184, 0.9);
-}
 
-.btnBlackCss.active {
-  background-color: black;
-  color: white;
-}
-.btnGreenCss.active {
-  background-color: green;
-  color: white;
-}
 .btnClicked {
   background-color: rgb(67, 67, 247);
+  color: white;
+}
+.btnKuno.active {
+  background-color: grey;
   color: white;
 }

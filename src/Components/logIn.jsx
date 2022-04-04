@@ -35,9 +35,7 @@ export default function LogIn() {
       var credential = {
         username: login.username,
         password: login.password,
-        terminal: localStorage.getItem("terminal"),
       };
-
       if (localStorage.getItem("token")) {
         setProcessing(false);
         window.location.pathname = "/";
@@ -45,7 +43,7 @@ export default function LogIn() {
 
       axios
         .post(
-          "http://virtual-bet-frontend.herokuapp.com/api/cashier/login/",
+          "https://virtual-bet-frontend.herokuapp.com/api/account/login/",
           credential
         )
         .then((response) => {
@@ -69,45 +67,45 @@ export default function LogIn() {
     }
   };
 
-  if (!localStorage.getItem("token")) {
+  if (!localStorage.getItem("terminal")) {
     window.location.pathname = "/terminal";
   } else {
     return (
-      <div className="mainDiv center">
-        <form className="form-inline">
-          <div className="row">
-            <div className="form-group-sm mb-2 col-12 ">
+      <div className='mainDiv center'>
+        <form className='form-inline'>
+          <div className='row'>
+            <div className='form-group-sm mb-2 col-12 '>
               <input
-                type="text"
-                className="form-control "
-                name="username"
-                placeholder="Username"
+                type='text'
+                className='form-control '
+                name='username'
+                placeholder='Username'
                 onChange={(e) => handleOnChange(e)}
               />
             </div>
-            <div className="form-group mb-2 col">
+            <div className='form-group mb-2 col'>
               <input
-                type="text"
-                className="form-control"
-                name="password"
-                placeholder="Password"
+                type='text'
+                className='form-control'
+                name='password'
+                placeholder='Password'
                 onChange={(e) => handleOnChange(e)}
               />
             </div>
-            <div className="row">
-              <div className=""></div>
-              <div className="col-lg-2 center mt-3">
+            <div className='row'>
+              <div className=''></div>
+              <div className='col-lg-2 center mt-3'>
                 {processing ? (
                   <Messaging
-                    color="#ff5b00"
-                    width="10px"
-                    height="10px"
-                    duration="1s"
+                    color='#ff5b00'
+                    width='10px'
+                    height='10px'
+                    duration='1s'
                   />
                 ) : (
                   <button
-                    type="submit"
-                    className="btn btn-warning mb-2"
+                    type='submit'
+                    className='btn btn-warning mb-2'
                     onClick={handleSubmit}
                   >
                     Login{" "}

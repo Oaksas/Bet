@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import * as AiIcons from "react-icons/ai";
 import "./Css/popup.css";
 import axios from "axios";
-export default function PayTable(props) {
+export default function   PayTable(props) {
   const [odds, setOdds] = useState([]);
 
   const payTable = () => {

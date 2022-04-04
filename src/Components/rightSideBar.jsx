@@ -21,11 +21,12 @@ export default function RightSideBar(props) {
 
   let componentRef = useRef();
   const handleLogOut = () => {
-    console.log(localStorage);
     localStorage.clear();
-    console.log(localStorage);
 
     window.location.pathname = "/login";
+  };
+  const handleOnChange = (event) => {
+    props.setValue(event.target.value);
   };
   const handleOdd = (bet) => {
     switch (bet) {
@@ -61,7 +62,6 @@ export default function RightSideBar(props) {
     if (props.getValue() * total > props.maxWin) {
       alert.show("Maximum bet reached !!");
 
-      // console.log("reached max,", props.total);
       return props.total;
     } else {
       props.setTotal(props.getValue() * total);
@@ -153,7 +153,8 @@ export default function RightSideBar(props) {
                   type='text'
                   className='form-control'
                   placeholder='ብር 5'
-                  value={"ብር " + props.getValue()}
+                  value={props.getValue()}
+                  onChange={handleOnChange}
                 />
               </div>
             </div>
@@ -231,17 +232,9 @@ export default function RightSideBar(props) {
             <div className='btn-group my-1'>
               <button
                 type='button'
-                className='btn bg-secondary customBtn mx-1'
-                onClick={() => {
-                  if (true) {
-                    var currentBet = props.selectedBets.filter(function (e) {
-                      return e;
-                    });
-
-                    props.selectBets(currentBet);
-                    sendBets(currentBet, props.getValue());
-                  }
-                }}
+                disabled={!(props.selectedBets.length > 0)}
+                className='btn bg-white customBtn mx-1'
+                onClick={() => props.setTicketID("ff")}
               >
                 <AiIcons.AiOutlineCheck color='green' />
               </button>

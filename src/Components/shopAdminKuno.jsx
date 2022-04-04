@@ -6,11 +6,12 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import OpenTickets from "./openTickets";
-import Tickets from "./tickets";
-import Turnover from "./turnover";
 import Results from "./Results";
-export default function AdminShop(props) {
+import NumberBets from "./numberBets";
+import AllIn from "./allIn";
+import ExtraMarket from "./extraMarket";
+
+export default function AdminShopKuno(props) {
   const [ticketStatus, setTicketStatus] = useState("primary");
   const [value, setValue] = useState(0);
   const handleChange = (event, newValue) => {
@@ -49,15 +50,29 @@ export default function AdminShop(props) {
     };
   }
 
-  return props.shopAdmin ? (
+  return props.shopAdminKuno ? (
     <div className='popup p-3'>
-      <div className='popupInnerWider px-2'>
-        <div className={"row p-1"}>
-          {/* <div className="col-lg-1 ">
-            <div className="row text-black">
-              <div className="col-lg-3 title "> SHOP ADMIN</div>
+      <div className='popupInnerKuno px-2'>
+        <div className={"row p-1 bg-primary"}>
+          <div className='col-lg-11 '>
+            <div className='row m-2 text-white'>
+              <div className='col-lg-12'>Spin 2 Win Royale</div>
+              <div className='col-lg-12'>
+                <h5>
+                  <b>PAYTABLE</b>{" "}
+                </h5>
+              </div>
             </div>
-          </div> */}
+          </div>
+          <div className='col-lg-1 p-3'>
+            <AiIcons.AiOutlineClose
+              color='white'
+              size={25}
+              onClick={() => props.setshopAdminKuno(false)}
+            />
+          </div>
+        </div>
+        <div className={"row p-1"}>
           <div className='col-lg-11'>
             <Box sx={{ width: "100%" }}>
               <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -66,35 +81,32 @@ export default function AdminShop(props) {
                   onChange={handleChange}
                   aria-label='basic tabs example'
                 >
-                  <Tab label='OPEN TICKETS' {...a11yProps(0)} />
-                  <Tab label='TICKETS' {...a11yProps(1)} />
-                  <Tab label='TURNOVER' {...a11yProps(2)} />
-                  <Tab label='RESULTS' {...a11yProps(3)} />
+                  <Tab label='NUMBER BETS' {...a11yProps(0)} />
+                  <Tab label='ALL-IN/ NO-DRAW' {...a11yProps(1)} />
+                  <Tab label='EXTRA MARKETS' {...a11yProps(2)} />
                 </Tabs>
               </Box>
               <TabPanel value={value} index={0}>
-                <OpenTickets />
+                <NumberBets />
               </TabPanel>
               <TabPanel value={value} index={1}>
-                <Tickets />
+                <AllIn />
               </TabPanel>
               <TabPanel value={value} index={2}>
-                <Turnover />
-              </TabPanel>
-              <TabPanel value={value} index={3}>
-                <Results />
+                <ExtraMarket />
               </TabPanel>
             </Box>
           </div>
-          <div className='col-lg-1 p-3'>
-            <AiIcons.AiOutlineClose
-              color='black'
-              size={25}
-              onClick={() => props.setshopAdmin(false)}
-            />
-          </div>
         </div>
-        <div className='row'></div>
+        <div className='row closeBtn mt-4 fixed-bottom'>
+          <button
+            type='button'
+            className='btn bg-primary closeBtn'
+            onClick={() => props.setshopAdminKuno(false)}
+          >
+            CLOSE{" "}
+          </button>
+        </div>
       </div>
     </div>
   ) : (

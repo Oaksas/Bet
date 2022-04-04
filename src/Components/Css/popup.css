@@ -57,8 +57,8 @@
 
 .innerRow {
   background-color: rgba(230, 230, 236, 0.6);
-  margin-right: 3px;
-  margin-left: -3px;
+  margin-right: 1px;
+  /* margin-left: -3px; */
 }
 .closeBtn {
   margin: 0 auto;
@@ -79,4 +79,26 @@
 }
 .overlayColor {
   background-color: rgba(0, 0, 0, 0.26);
+}
+h6 {
+  font-size: 1rem;
+}
+
+.popupInnerPayOut {
+  width: 70%;
+  height: 71vh;
+  background-color: white;
+}
+.smallFont {
+  font-size: 0.8rem;
+}
+.popupInnerKuno {
+  width: 80%;
+  height: 100vh;
+  background-color: white;
+}
+.popupInnerKunoSmall {
+  width: 80%;
+  height: 80vh;
+  background-color: white;
 }

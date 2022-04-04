@@ -44,34 +44,34 @@ export default function TerminalCheck() {
     }
   };
 
-  if (!localStorage.getItem("token")) {
-    window.location.pathname = "/terminal";
+  if (localStorage.getItem("terminal")) {
+    window.location.pathname = "/login";
   } else {
     return (
-      <div className="mainDiv center">
-        <form class="form-inline col-lg-8">
-          <div class="row">
-            <div class="form-group mb-2 col-12">
+      <div className='mainDiv center'>
+        <form class='form-inline col-lg-8'>
+          <div class='row'>
+            <div class='form-group mb-2 col-12'>
               <input
-                type="text"
-                class="form-control"
-                name="token"
-                placeholder="Terminal Token"
+                type='text'
+                class='form-control'
+                name='token'
+                placeholder='Terminal Token'
                 onChange={(e) => handleOnChange(e)}
               />
             </div>
-            <div class="col">
+            <div class='col'>
               {processing ? (
                 <Messaging
-                  color="#ff5b00"
-                  width="10px"
-                  height="10px"
-                  duration="1s"
+                  color='#ff5b00'
+                  width='10px'
+                  height='10px'
+                  duration='1s'
                 />
               ) : (
                 <button
-                  type="submit"
-                  class="btn btn-warning mb-2"
+                  type='submit'
+                  class='btn btn-warning mb-2'
                   onClick={handleSubmit}
                 >
                   Confirm Identity
