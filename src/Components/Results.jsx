@@ -13,7 +13,7 @@ export default function Results(props) {
     try {
       axios
         .get(
-          "http://virtual-bet-frontend.herokuapp.com/api/result/roundsresult/"
+          "https://virtual-bet-frontend.herokuapp.com/api/result/roundsresult/"
         )
         .then((response) => {
           console.log(response.data.results);
@@ -28,40 +28,40 @@ export default function Results(props) {
   }, []);
   return (
     <Fragment>
-      <div className="row ">
-        <div className="col-lg-12 mt-1 d-none-sm">
+      <div className='row '>
+        <div className='col-lg-12 mt-1 d-none-sm'>
           <h5>Results</h5>
         </div>
-        <div className="col-lg-3 d-none-sm">
+        <div className='col-lg-3 d-none-sm'>
           <Dropdown
             options={options}
             value={defaultOption}
-            placeholder="Select an option"
-            size="sm"
-            className="verySmallText"
+            placeholder='Select an option'
+            size='sm'
+            className='verySmallText'
           />
         </div>
-        <div className="col-lg-9 d-none-sm  d-flex justify-content-end">
-          <button className="btn bg-black text-white">
+        <div className='col-lg-9 d-none-sm  d-flex justify-content-end'>
+          <button className='btn bg-black text-white'>
             {" "}
             Print Last Results
           </button>
         </div>
       </div>
 
-      <table class="table mt-2">
-        <thead className="">
+      <table class='table mt-2'>
+        <thead className=''>
           <tr>
-            <th scope="col">
+            <th scope='col'>
               <small>EventID</small>
             </th>
-            <th scope="col">
+            <th scope='col'>
               <small>Date / Time</small>
             </th>
-            <th scope="col">
+            <th scope='col'>
               <small>Results</small>
             </th>
-            <th scope="col">
+            <th scope='col'>
               <small>Round</small>
             </th>
           </tr>
@@ -69,8 +69,8 @@ export default function Results(props) {
         <tbody>
           {result.map((result, key) => {
             return (
-              <tr className="text-secondary">
-                <th scope="row">
+              <tr className='text-secondary'>
+                <th scope='row'>
                   <small>3432e323</small>
                 </th>
                 <td>

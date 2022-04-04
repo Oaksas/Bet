@@ -12,7 +12,7 @@ export default function Status(props) {
   const payTable = () => {
     try {
       axios
-        .get("http://virtual-bet-frontend.herokuapp.com/api/bet/odds")
+        .get("https://virtual-bet-frontend.herokuapp.com/api/bet/odds")
         .then((response) => {
           // setOdds(response.data.odds);
           var temp = [];

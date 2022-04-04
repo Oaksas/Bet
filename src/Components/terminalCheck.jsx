@@ -27,7 +27,7 @@ export default function TerminalCheck() {
       setProcessing(true);
       axios
         .get(
-          "http://virtual-bet-frontend.herokuapp.com/api/terminal/" +
+          "https://virtual-bet-frontend.herokuapp.com/api/terminal/" +
             terminalToken.token.replace("+", "%2B").replace("/", "%2F")
         )
         .then((response) => {

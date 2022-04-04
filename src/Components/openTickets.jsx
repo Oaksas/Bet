@@ -6,7 +6,7 @@ export default function OpenTickets(props) {
     try {
       axios
         .get(
-          "http://virtual-bet-frontend.herokuapp.com/api/ticket/opentickets/"
+          "https://virtual-bet-frontend.herokuapp.com/api/ticket/opentickets/"
         )
         .then((response) => {
           setOpenTickets(response.data);
@@ -20,15 +20,15 @@ export default function OpenTickets(props) {
   }, []);
   return (
     <Fragment>
-      <div className="row">
-        <div className="col-lg-4 mt-1">
+      <div className='row'>
+        <div className='col-lg-4 mt-1'>
           <h5>OPEN TICKETS({openTickets.length}) </h5>
         </div>
-        <div className="col-lg-2">
-          <button className="btn bg-black text-white"> Refresh </button>
+        <div className='col-lg-2'>
+          <button className='btn bg-black text-white'> Refresh </button>
         </div>
       </div>
-      <div className="row mt-2">
+      <div className='row mt-2'>
         {openTickets.length === 0 ? (
           <small>There are no open tickets at this time</small>
         ) : (

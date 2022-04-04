@@ -19,18 +19,6 @@ function Tabs(props) {
         >
           <h5 className='mt-1'>Main</h5>
         </button>
-        {/* <button
-          className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
-          onClick={() => toggleTab(2)}
-        >
-          <small> SECTORS/FINALS</small>{" "}
-        </button> */}
-        {/* <button
-          className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
-          onClick={() => toggleTab(3)}
-        >
-          <small>EXTRA BETS</small>
-        </button> */}
       </div>
 
       <div className='content-tabs'>

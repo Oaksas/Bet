@@ -21,7 +21,7 @@ export default function TicketCheck(props) {
     try {
       axios
         .post(
-          "http://virtual-bet-frontend.herokuapp.com/api/bet/payout/",
+          "https://virtual-bet-frontend.herokuapp.com/api/bet/payout/",
           props.ticketID
         )
         .then((response) => {
@@ -36,37 +36,37 @@ export default function TicketCheck(props) {
     }
   };
   return props.trigger ? (
-    <div className="popup p-3">
-      <div className="popupInner p-3">
-        <div className="row p-1">
-          <div className="col-lg-11"></div>
-          <div className="col-lg-1">
+    <div className='popup p-3'>
+      <div className='popupInner p-3'>
+        <div className='row p-1'>
+          <div className='col-lg-11'></div>
+          <div className='col-lg-1'>
             <AiIcons.AiOutlineClose
-              color="black"
+              color='black'
               onClick={() => props.setTrigger(false)}
             />
           </div>
         </div>
 
-        <div className="row center">
-          <div className="col-lg-10 ">
+        <div className='row center'>
+          <div className='col-lg-10 '>
             {" "}
             <b>Ticket ID</b>
           </div>
-          <div className="col-lg-10 my-2">
+          <div className='col-lg-10 my-2'>
             <input
-              type="text"
-              className="form-control"
-              placeholder="XD4HS7"
+              type='text'
+              className='form-control'
+              placeholder='XD4HS7'
               value={ticketNum}
             />
           </div>
-          <div className="col-lg-10">
-            <div class="btn-group my-1 text-white">
+          <div className='col-lg-10'>
+            <div class='btn-group my-1 text-white'>
               {nums.map((num, index) => {
                 return (
                   <button
-                    type="button"
+                    type='button'
                     className={"btn alphaBtn  mx-1"}
                     onClick={() => setTicket(num)}
                   >
@@ -76,12 +76,12 @@ export default function TicketCheck(props) {
               })}
             </div>
           </div>
-          <div className="col-lg-10 ">
-            <div class="btn-group my-1 text-white">
+          <div className='col-lg-10 '>
+            <div class='btn-group my-1 text-white'>
               {alphabetCol1.map((letter, index) => {
                 return (
                   <button
-                    type="button"
+                    type='button'
                     className={"btn alphaBtn  mx-1"}
                     onClick={() => setTicket(letter)}
                   >
@@ -91,12 +91,12 @@ export default function TicketCheck(props) {
               })}
             </div>
           </div>
-          <div className="col-lg-10 ">
-            <div class="btn-group my-1 text-white">
+          <div className='col-lg-10 '>
+            <div class='btn-group my-1 text-white'>
               {alphabetCol2.map((letter, index) => {
                 return (
                   <button
-                    type="button"
+                    type='button'
                     className={"btn alphaBtn  mx-1"}
                     onClick={() => setTicket(letter)}
                   >
@@ -106,12 +106,12 @@ export default function TicketCheck(props) {
               })}
             </div>
           </div>
-          <div className="col-lg-10 ">
-            <div class="btn-group my-1 text-white">
+          <div className='col-lg-10 '>
+            <div class='btn-group my-1 text-white'>
               {alphabetCol3.map((letter, index) => {
                 return (
                   <button
-                    type="button"
+                    type='button'
                     className={"btn alphaBtn  mx-1"}
                     onClick={() => setTicket(letter)}
                   >
@@ -120,14 +120,14 @@ export default function TicketCheck(props) {
                 );
               })}{" "}
               <button
-                type="button"
+                type='button'
                 className={"btn clearBtn  mx-1"}
                 onClick={() => clearTicket()}
               >
                 <b>CLEAR</b>
               </button>
               <button
-                type="button"
+                type='button'
                 className={"btn okBtn  mx-1"}
                 onClick={() => checkTicket()}
               >
