@@ -85,7 +85,7 @@ export default function LogIn() {
             </div>
             <div className='form-group mb-2 col'>
               <input
-                type='text'
+                type='password'
                 className='form-control'
                 name='password'
                 placeholder='Password'
